@@ -51,10 +51,10 @@ Sorting by most significant digit (100s place) gives:
 ## Ruls :
 ```js
 var rectcs = require('./node-sort-radix');
-var result = rectcs.radixSort(arr);
+var result = rectcs.radixSort(inputArray,base);
 ```
- * Sort Array of integers .
- * Array's element shoud be integers and between 0 and rangeMax
+ * Sort Array of integers (Decimal Base 10 , Hex Base 16 , Octal Base 8 , Binary Base 2 ).
+ * Array's element shoud be integers .
  * Returns the Sorted Array or -1 if not found valid input.
 
 ## example
