@@ -50,8 +50,8 @@ Sorting by most significant digit (100s place) gives:
 
 ## Ruls :
 ```js
-var rectcs = require('./node-sort-Radix');
-var result = rectcs.RadixSort(inputArray,rangeMax);
+var rectcs = require('./node-sort-radix');
+var result = rectcs.radixSort(arr);
 ```
  * Sort Array of integers .
  * Array's element shoud be integers and between 0 and rangeMax
@@ -59,7 +59,7 @@ var result = rectcs.RadixSort(inputArray,rangeMax);
 
 ## example
 ```js
-var rectcs = require('./node-sort-Radix');
+var rectcs = require('./node-sort-radix');
 
 var arrin01 = [20, 8 , 48, 120, 220 , 390 , 1000 ];
 var arrin02 = [20, 8 , 480 , 120, 220 , 390 , 1000 ];
@@ -68,24 +68,31 @@ var arrin04 = ['g', 'e', 'e', 'k', 's', 'f', 'o',
                       'r', 'g', 'e', 'e', 'k', 's'];
 var arrin05 = [1, 3, 7, 25, 12, 9, 8,
                       121, 221, 10, 18, 29, 49];
+var arrin06 = [1, 3, -7, 25, 12, 9, 8,
+                      121, 221, -10, 18, 29, 49];
+var arrin07 = [1, 3, 7000000000000000000, 25, 12, 9, 8,
+                      121, 221, 100000000000000000000000000 , 18, 290000000000000000000, 49];
+var arrin07 = [1, 3, 75432, 25, 12, 9, 8,
+                      121, 221, 976562 , 18, 2900000, 49];
 
 
-function solveIS(arr,range) {
+function solveRS(arr) {
     var arr_original = arr.toString() ;
-    var result = rectcs.RadixSort(arr,range);
+    var result = rectcs.radixSort(arr);
     if (result==-1){
-    console.log("Fail attempt to sort array ["+arr_original+" ] by Insertion Sort " );
+    console.log("Fail attempt to sort array \r\n  ["+arr_original+" ] by Insertion Sort " );
     } else {
-    console.log("Success attempt to sort array ["+arr_original+" ] and result is : [ "
+    console.log("Success attempt to sort array \r\n \t ["+arr_original+" ] \r\n and result is : \r\n \t [ "
                 + result + " ]" );
     }
    
    console.log("----------------------------------------------------------");     
 }
 
-solveIS(arrin01,1000);
-solveIS(arrin05,256);
-solveIS(arrin03,1120);
+solveRS(arrin01);
+solveRS(arrin05);
+solveRS(arrin03);
+solveRS(arrin07);
 ```
 
 
