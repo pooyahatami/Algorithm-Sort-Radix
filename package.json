@@ -1,18 +1,51 @@
 {
-  "name": "node-sort-radix",
-  "description": "In computer science, radix sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value. A positional notation is required, but because integers can represent strings of characters (e.g., names or dates) and specially formatted floating point numbers, radix sort is not limited to integers. Radix sort dates back as far as 1887 to the work of Herman Hollerith on tabulating machines.",
-  "version": "1.0.1",
-  "repository": {
-    "url": "https://github.com/pooyahatami/Algorithm-Sort-Radix"
+  "_from": "node-sort-radix",
+  "_id": "node-sort-radix@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-UkDQ8yOARcmI0GdBc9RC7Ujz9vA=",
+  "_location": "/node-sort-radix",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "node-sort-radix",
+    "name": "node-sort-radix",
+    "escapedName": "node-sort-radix",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
-  "main": "node-sort-Radix.js",
-  "scripts": {
-    "test": "test-Cases/*.js"
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-sort-radix/-/node-sort-radix-1.0.1.tgz",
+  "_shasum": "5240d0f3238045c988d0674173d442ed48f3f6f0",
+  "_spec": "node-sort-radix",
+  "_where": "C:\\inetpub\\nodejs",
+  "author": {
+    "name": "Pooya Hatami",
+    "email": "am.hatami@yahoo.com"
   },
-  "author": "Pooya Hatami <am.hatami@yahoo.com>",
+  "bugs": {
+    "url": "https://github.com/pooyahatami/Algorithm-Sort-Radix/issues"
+  },
+  "bundleDependencies": false,
   "dependencies": {},
+  "deprecated": false,
+  "description": "In computer science, radix sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value. A positional notation is required, but because integers can represent strings of characters (e.g., names or dates) and specially formatted floating point numbers, radix sort is not limited to integers. Radix sort dates back as far as 1887 to the work of Herman Hollerith on tabulating machines.",
   "devDependencies": {
     "tap": "~0.4.1"
   },
-  "license": "MIT"
+  "homepage": "https://github.com/pooyahatami/Algorithm-Sort-Radix#readme",
+  "license": "MIT",
+  "main": "node-sort-Radix.js",
+  "name": "node-sort-radix",
+  "repository": {
+    "url": "git+https://github.com/pooyahatami/Algorithm-Sort-Radix.git"
+  },
+  "scripts": {
+    "test": "test-Cases/*.js"
+  },
+  "version": "2.0.1"
 }
