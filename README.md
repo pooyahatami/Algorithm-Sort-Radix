@@ -1,20 +1,8 @@
 [![Build Status](https://secure.travis-ci.org/soldair/node-binarysearch.png)](https://github.com/pooyahatami/Algorithm-Sort-Radix/)
 # Algorithm-Sort-Radix
 
-## Brief about Radix Sort 
+## About Radix Sort 
 The lower bound for Comparison based sorting algorithm (Merge Sort, Heap Sort, Quick-Sort .. etc) is Ω(nLogn), i.e., they cannot do better than nLogn.
-
-Counting sort is a linear time sorting algorithm that sort in O(n+k) time when elements are in range from 1 to k.
-
-**What if the elements are in range from 1 to n2?**
-
-We can’t use counting sort because counting sort will take O(n2) which is worse than comparison based sorting algorithms. Can we sort such an array in linear time?
-Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. Radix sort uses counting sort as a subroutine to sort.
-
-**The Radix Sort Algorithm**
-1) Do following for each digit i where i varies from least significant digit to the most significant digit.
-
-………….a) Sort input array using counting sort (or any stable sort) according to the i’th digit.
 
 ```javascript
  * Radix sort algorithm !
@@ -32,7 +20,119 @@ Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort st
  *
  * Author: Pooya Hatami
  ```
- 
+## Installation
+
+If you are using a browser, you can download **node-sort-radix.js** from GitHub or just bellow hotlink to it:
+
+```js
+<script src="https://raw.githubusercontent.com/pooyahatami/Algorithm-Sort-Radix/master/node-sort-radix.js"></script>
+```
+
+If you are using node, you can install **node-sort-radix** with npm.
+
+```
+npm install node-sort-radix
+```
+
+## Usage :
+```js
+var nodesort = require('./node-sort-radix');
+var displaymode = "No"; //"Yes";  // "Yes" for more details of algorithm progress
+var base = 10;  //  (Decimal Base 10 , Hex Base 16 , Octal Base 8 , Binary Base 2 ).
+...
+nodesort(inputArray, displaymode, function(err,sortRef) {
+        if (err) {
+            // TODO error handeling 
+            }
+	      else {
+           var result = sortRef.radixSort(inputArray,base);
+           // TODO output 
+	            }
+    });
+```
+
+## Ruls :
+ * Sort Array of integers (Decimal Base 10 , Hex Base 16 , Octal Base 8 , Binary Base 2 ).
+ * Array's element shoud be positive integers and not beager than 999,999 .
+ * Returns error mesage if not found valid input.
+ * Turn On details of Algorithms progress useing : displaymode = "Yes"  
+ ```js
+ var displaymode = "No"; //"Yes";
+ ```
+
+## Example
+```js
+var nodesort = require('./node-sort-radix');
+var displaymode = "No"; //"Yes";  // "Yes" for more details of algorithm progress 
+var base = 10;  //  (Decimal Base 10 , Hex Base 16 , Octal Base 8 , Binary Base 2 ).
+
+var arrin00 = [20, 8 , -11, 12, 22 , 9 , 10 ];
+var arrin01 = [20, 8 , 48, 120, 220 , 390 , 1000 ];
+var arrin02 = [20, 8 , 480 , 120, 220 , 390 , 1000 ];
+var arrin03 = [1120, 800 , 480 , 120, 20 , 390 , 1000 ];
+var arrin04 = ['g', 'e', 'e', 'k', 's', 'f', 'o',
+                      'r', 'g', 'e', 'e', 'k', 's'];
+var arrin05 = [1, 3, 7, 25, 12, 9, 8,
+                      121, 221, 10, 18, 29, 49];
+var arrin06 = [1, 3, -7, 25, 12, 9, 8,
+                      121, 221, -10, 18, 29, 49];
+var arrin07 = [1, 3, 7000000000000000000, 25, 12, 9, 8,
+                      121, 221, 100000000000000000000000000 , 18, 290000000000000000000, 49];
+var arrin08 = [1, 3, 75432, 25, 12, 9, 8,
+                      121, 221, 976562 , 18, 299999, 49];
+var arrin09 = [0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434 , 0.611 , 0.621 ];
+var arrin10 = [1,342, 14,293 , 0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434 , 0.611 , 0.621 ];
+var arrin11 = [5, 8 , 11, 12, 2 , 9 , 10 , 4 , 11, 10, 12, 7, 9 ];
+var arrin12 = "";
+//var arrin13 = [A7,02,22,77,37,15,00,40,B00,75,04,05,07,75,52,12,50,77,71,D07];    //base16
+var arrin14 = [1001,101010,11,10,01,111,100,1000,11100,10110,101,100010,0111,101,11111,1000001,1,0,111,11010];   //base 2
+var arrin15 = [7,2,22,77,37,15,10770,740,70,75,04,5,107,75,52,12,50,177,71,207];   //base 8
+
+
+function solveSorting(inputArray,base) {
+    var arr_original = inputArray.toString() ;
+    var sortedArray = inputArray;
+
+    nodesort(inputArray, displaymode,  function(err,sortRef) {
+        if (err) {
+	         console.log(err);
+	                }
+	      else {
+           var result = sortRef.radixSort(inputArray,base);
+	         console.log("Success attempt to sort array \r\n \t ["+arr_original+" ] \r\n and result is : \r\n \t [ "
+                + result + " ]" );
+  
+	      sortedArray = result;
+	            }
+	      console.log("----------------------------------------------------------"); 
+    });
+    
+    return sortedArray;
+};
+
+solveSorting(arrin01,10);
+solveSorting(arrin02,10);
+solveSorting(arrin06,10);
+solveSorting(arrin11,10);
+solveSorting(arrin12,10);
+solveSorting(arrin14,2);
+solveSorting(arrin15,8);
+```
+
+Counting sort is a linear time sorting algorithm that sort in O(n+k) time when elements are in range from 1 to k.
+
+**What if the elements are in range from 1 to n2?**
+
+We can’t use counting sort because counting sort will take O(n2) which is worse than comparison based sorting algorithms. Can we sort such an array in linear time?
+Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. Radix sort uses counting sort as a subroutine to sort.
+
+**The Radix Sort Algorithm**
+1) Do following for each digit i where i varies from least significant digit to the most significant digit.
+
+………….a) Sort input array using counting sort (or any stable sort) according to the i’th digit.
+
+![Radix Sort](https://raw.githubusercontent.com/pooyahatami/Algorithm-Sort-Radix/master/img/radix-sort-algorithms.jpg)
+
 Let us understand it with the help of an example.
 
 ```javascript
@@ -49,54 +149,6 @@ Sorting by most significant digit (100s place) gives:
 
 2, 24, 45, 66, 75, 90, 170, 802
 ```
-
-## Ruls :
-```js
-var rectcs = require('./node-sort-radix');
-var result = rectcs.radixSort(inputArray,base);
-```
- * Sort Array of integers (Decimal Base 10 , Hex Base 16 , Octal Base 8 , Binary Base 2 ).
- * Array's element shoud be integers .
- * Returns the Sorted Array or -1 if not found valid input.
-
-## example
-```js
-var rectcs = require('./node-sort-radix');
-
-var arrin01 = [20, 8 , 48, 120, 220 , 390 , 1000 ];
-var arrin02 = [20, 8 , 480 , 120, 220 , 390 , 1000 ];
-var arrin03 = [1120, 800 , 480 , 120, 20 , 390 , 1000 ];
-var arrin04 = ['g', 'e', 'e', 'k', 's', 'f', 'o',
-                      'r', 'g', 'e', 'e', 'k', 's'];
-var arrin05 = [1, 3, 7, 25, 12, 9, 8,
-                      121, 221, 10, 18, 29, 49];
-var arrin06 = [1, 3, -7, 25, 12, 9, 8,
-                      121, 221, -10, 18, 29, 49];
-var arrin07 = [1, 3, 7000000000000000000, 25, 12, 9, 8,
-                      121, 221, 100000000000000000000000000 , 18, 290000000000000000000, 49];
-var arrin07 = [1, 3, 75432, 25, 12, 9, 8,
-                      121, 221, 976562 , 18, 2900000, 49];
-
-
-function solveRS(arr) {
-    var arr_original = arr.toString() ;
-    var result = rectcs.radixSort(arr);
-    if (result==-1){
-    console.log("Fail attempt to sort array \r\n  ["+arr_original+" ] by Insertion Sort " );
-    } else {
-    console.log("Success attempt to sort array \r\n \t ["+arr_original+" ] \r\n and result is : \r\n \t [ "
-                + result + " ]" );
-    }
-   
-   console.log("----------------------------------------------------------");     
-}
-
-solveRS(arrin01);
-solveRS(arrin05);
-solveRS(arrin03);
-solveRS(arrin07);
-```
-
 
 **What is the running time of Radix Sort?**
 
